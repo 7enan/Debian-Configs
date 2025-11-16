@@ -1,0 +1,20 @@
+@import "/home/renan/.cache/wal/colors-waybar.css";
+
+#waybar {
+    font-family: "FiraCode Nerd Font";
+    font-size: 14px;
+    background-color: transparent;
+    color: @foreground;
+}
+
+box.modules-right, box.modules-center, box.modules-left {  
+    border-radius: 25px;
+    background-color: @background;
+}
+
+#clock, #tray, #battery, #backlight, #power-profiles-daemon, #pulseaudio, #bluetooth, #mpd, #custom-Wlogout {
+    padding: 0 10px;
+    color: @foreground;
+    background-color: transparent;
+}
+

@@ -1,0 +1,155 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 5,
+    "modules-left": ["clock", "pulseaudio", "bluetooth", "network"],
+    "modules-center": ["sway/workspaces"],
+    "modules-right": ["tray", "backlight", "power-profiles-daemon", "battery", "custom/Wlogout"],
+    "width": 1366,
+    "reload_style_on_change": true,
+    "margin-top": 0,
+    "margin-left": 5,
+    "margin-right": 5,
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+
+    "battery": {
+        "interval": 5,
+
+        "states": {
+            "good": 95,
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰢝",
+        "format-full": "{capacity}% 󰂅",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰂂"]
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "󰉁",
+            "performace": "󰉁",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "tooltip": true,
+        "tooltip-format": "{percent}% {icon}",
+        "format-icons": [" " , "󰖨 "]
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-bluetooth": "{icon} ",
+        "format-muted": "",
+        "tooltip": true,
+        "tooltip-format": "{volume}% {icon}",
+        "tooltip-format-bluetooth": "{volume}% {icon}",
+        "format-icons": {
+            "default": ["", ""]
+        },
+        "scroll-step": 1,
+        "on-click-right": "pavucontrol",
+        "ignored-sinks": ["Easy Effects Sink"]
+    },
+
+    
+    "bluetooth": {
+	      "format": "󰂯",
+	      "format-connected": "󰂰",
+	      "format-connected-battery": "󰂰{device_battery_percentage}%",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "format-on": "󰂯",
+	      "tooltip-format": "{controller_alias}\t{controller_address}\n{status}\n{num_connections} connected",
+	      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "~/Dotfiles/waybar/Scripts/toggle-bluetooth.sh",
+        "on-click-right": "blueman-manager 2>/dev/null",
+    },
+
+    "custom/Wlogout": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "wlogout"  
+    },
+
+    "sway/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "persistent-workspaces": {
+          "1": [],
+          "2": [],
+          "3": [],
+          "4": []
+        },
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+          "1": "",
+          "2": "",
+          "3": "",
+          "4": "",
+          "urgent": "",
+          "active": "",
+          "default": ""
+      },
+    "sort-by-number": true,
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month", // <-- CORREÇÃO 1: Alterado para "month"
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up", // <-- CORREÇÃO 2: Ações duplicadas removidas
+            "on-scroll-down": "shift_down"
+        }
+    },
+    
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "({signalStrength}%)   ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "format-disconnected": "󱚵  ", //An empty format will hide the module.
+        "format-disabled": "󰖪  ",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-disabled": "disabled",
+        "on-click": "nmcli radio wifi $([ $(nmcli radio wifi) = 'enabled' ] && echo 'off' || echo 'on')",
+        "on-click-right": "kitty << echo nmtui",
+        "max-length": 50
+    }
+
+}
