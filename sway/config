@@ -1,9 +1,13 @@
+# Desabilita o wallpaper padrão do Sway
+set $bg swaybg -i ~/Imagens/Wallpapers/15.One-Dark.png
+exec $bg
+ 
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
-exec wal -i ~/Imagens/Wallpapers/15.One-Dark.png
+exec wal -i ~/Imagens/Wallpapers/15.One-Dark.png 
 
 ### Variables
 #
@@ -219,7 +223,6 @@ bindsym $mod+r mode "resize"
 
 exec waybar
 include /etc/sway/config.d/*
-exec swaybg -i ~/Imagens/Wallpapers/15.One-Dark.png 
 exec /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1
 exec gnome-keyring-daemon
-set $QT_QPA_PLATFORMTHEME qt5ct
+#set $QT_QPA_PLATFORMTHEME qt5ct
