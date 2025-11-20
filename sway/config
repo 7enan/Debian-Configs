@@ -197,6 +197,25 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 # Special key to take a screenshot with grim
 bindsym Print exec grim
 
+#####################
+##-Personalization-##
+#####################
+
+#Remove title-bar
+default_floating_border none
+default_border none
+
+#-Spacings-#
+
+# Intern
+gaps inner 5
+
+#Extern
+gaps outer 3
+
+#Floating windows spacings
+smart_gaps on
+
 ##############
 ##-Includes-##
 ##############
