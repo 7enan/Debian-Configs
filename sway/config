@@ -17,6 +17,10 @@ exec gnome-keyring-daemon
 # Polkit
 exec /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1
 
+#Xdg Portal wlr
+exec /usr/libexec/xdg-desktop-portal-wlr
+
+
 ###############
 ##-Variables-##
 ###############
@@ -201,9 +205,11 @@ bindsym Print exec grim
 ##-Personalization-##
 #####################
 
-#Remove title-bar
+#-Borders-#
 default_floating_border none
-default_border none
+default_border pixel 3
+
+title_align center
 
 #-Spacings-#
 
@@ -215,6 +221,13 @@ gaps outer 3
 
 #Floating windows spacings
 smart_gaps on
+
+###############
+##-Variables-##
+###############
+
+#Xorg suport
+xwayland enable
 
 ##############
 ##-Includes-##
