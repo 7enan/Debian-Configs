@@ -15,7 +15,7 @@ exec waybar
 exec gnome-keyring-daemon
 
 # Polkit
-exec /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1
+exec lxpolkit
 
 #Xdg Portal wlr
 exec /usr/libexec/xdg-desktop-portal-wlr
