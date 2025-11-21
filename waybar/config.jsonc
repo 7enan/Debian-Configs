@@ -9,7 +9,7 @@
     "width": 1366,
     "reload_style_on_change": true,
     "margin-top": 3,
-    "margin-bottom": 3,
+    "margin-bottom": 0,
     "margin-left": 5,
     "margin-right": 5,
 
@@ -80,7 +80,7 @@
 	      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
 	      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
 	      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click": "~/Dotfiles/waybar/Scripts/toggle-bluetooth.sh",
+        "on-click": "~/Debian-Configs/waybar/Scripts/toggle-bluetooth.sh",
         "on-click-right": "blueman-manager 2>/dev/null"
     },
 
@@ -96,15 +96,19 @@
 	"format": "{icon}",
         "on-click": "activate",
         "format-icons": {
-          "1": "",
-          "2": "",
-          "3": "",
-          "4": "",
-          "urgent": "",
-          "active": "",
-          "default": ""
-      },
-    "sort-by-number": true
+            "11": "󰲠",
+            "12": "󰲢",
+            "13": "󰲤",
+            "14": "󰲦",
+            "urgent": "",
+            "active": "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "11": [],
+            "12": []
+        },
+        "sort-by-number": true
     },
 
     "clock": {
@@ -150,7 +154,7 @@
     "wlr/taskbar": {
 	"format": "{icon}",
     	"icon-size": 22,
-    	"icon-theme": "Papirus",
+    	"icon-theme": "adwaita",
     	"tooltip-format": "{title}",
     	"on-click": "activate",
     	"on-click-middle": "close"    

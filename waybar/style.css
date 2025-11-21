@@ -5,8 +5,6 @@
     font-size: 16px;
     background-color: @background;
     color: @foreground;
-    border-radius: 25px;
-    padding: 0 20px
 }
 
 #clock, #tray, #battery, #backlight, #power-profiles-daemon, #pulseaudio, #bluetooth, #mpd, #custom-Wlogout {
