@@ -2,19 +2,21 @@
 
 #waybar {
     font-family: "FiraCode Nerd Font";
-    font-size: 14px;
-    background-color: transparent;
-    color: @foreground;
-}
-
-box.modules-right, box.modules-center, box.modules-left {  
-    border-radius: 25px;
+    font-size: 16px;
     background-color: @background;
+    color: @foreground;
+    border-radius: 25px;
+    padding: 0 20px
 }
 
 #clock, #tray, #battery, #backlight, #power-profiles-daemon, #pulseaudio, #bluetooth, #mpd, #custom-Wlogout {
     padding: 0 10px;
     color: @foreground;
     background-color: transparent;
+    font-size: 16px
 }
 
+#custom-firefox {
+    font-size: 22px;
+    color: @color2
+}

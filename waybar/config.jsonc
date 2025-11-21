@@ -1,20 +1,21 @@
 {
     "layer": "top",
-    "position": "top",
-    "height": 30,
+    "position": "bottom",
+    "height": 34,
     "spacing": 5,
-    "modules-left": ["clock", "pulseaudio", "bluetooth", "network"],
-    "modules-center": ["sway/workspaces"],
-    "modules-right": ["tray", "backlight", "power-profiles-daemon", "battery", "custom/Wlogout"],
+    "modules-left": ["clock"],
+    "modules-center": ["custom/firefox", "wlr/taskbar"],
+    "modules-right": ["sway/workspaces", "tray", "pulseaudio", "backlight", "bluetooth", "network", "power-profiles-daemon", "battery", "custom/Wlogout"],
     "width": 1366,
     "reload_style_on_change": true,
-    "margin-top": 0,
+    "margin-top": 3,
+    "margin-bottom": 3,
     "margin-left": 5,
     "margin-right": 5,
 
     "tray": {
-        "icon-size": 18,
-        "spacing": 10
+        "icon-size": 22,
+        "spacing": 5
     },
 
     "battery": {
@@ -80,7 +81,7 @@
 	      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
 	      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
         "on-click": "~/Dotfiles/waybar/Scripts/toggle-bluetooth.sh",
-        "on-click-right": "blueman-manager 2>/dev/null",
+        "on-click-right": "blueman-manager 2>/dev/null"
     },
 
     "custom/Wlogout": {
@@ -91,14 +92,8 @@
 
     "sway/workspaces": {
         "format": "{icon}",
-        "on-click": "activate",
-        "persistent-workspaces": {
-          "1": [],
-          "2": [],
-          "3": [],
-          "4": []
-        },
-        "format": "{icon}",
+        "on-click": "activate",  
+	"format": "{icon}",
         "on-click": "activate",
         "format-icons": {
           "1": "",
@@ -109,15 +104,15 @@
           "active": "",
           "default": ""
       },
-    "sort-by-number": true,
+    "sort-by-number": true
     },
 
     "clock": {
         "format": "{:%H:%M}",
-        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
-            "mode": "month", // <-- CORREÇÃO 1: Alterado para "month"
+            "mode": "month",
             "mode-mon-col": 3,
             "weeks-pos": "right",
             "on-scroll": 1,
@@ -131,7 +126,7 @@
         },
         "actions": {
             "on-click-right": "mode",
-            "on-scroll-up": "shift_up", // <-- CORREÇÃO 2: Ações duplicadas removidas
+            "on-scroll-up": "shift_up",
             "on-scroll-down": "shift_down"
         }
     },
@@ -140,7 +135,7 @@
         "format": "{ifname}",
         "format-wifi": "({signalStrength}%)   ",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-        "format-disconnected": "󱚵  ", //An empty format will hide the module.
+        "format-disconnected": "󱚵  ",
         "format-disabled": "󰖪  ",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
@@ -150,6 +145,21 @@
         "on-click": "nmcli radio wifi $([ $(nmcli radio wifi) = 'enabled' ] && echo 'off' || echo 'on')",
         "on-click-right": "kitty << echo nmtui",
         "max-length": 50
-    }
+    },
 
+    "wlr/taskbar": {
+	"format": "{icon}",
+    	"icon-size": 22,
+    	"icon-theme": "Papirus",
+    	"tooltip-format": "{title}",
+    	"on-click": "activate",
+    	"on-click-middle": "close"    
+    },
+
+    "custom/firefox": {
+	"format": " 󰈹 ",
+	"tooltip": false,
+	"on-click": "firefox"
+    }
+    
 }
