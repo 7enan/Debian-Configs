@@ -9,7 +9,7 @@ exec swaybg -i ~/Imagens/Wallpapers/15.One-Dark.png
 exec wal -i ~/Imagens/Wallpapers/15.One-Dark.png 
 
 # Waybar
-exec waybar
+exec sleep 3 && waybar
 
 # Gnome-Keyring
 exec gnome-keyring-daemon
