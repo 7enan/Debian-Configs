@@ -2,9 +2,9 @@
     "layer": "top",
     "position": "bottom",
     "height": 34,
-    "spacing": 5,
+    "spacing": 4,
     "modules-left": ["clock"],
-    "modules-center": ["custom/firefox", "wlr/taskbar"],
+    "modules-center": ["custom/firefox", "custom/files", "custom/store", "wlr/taskbar"],
     "modules-right": ["sway/workspaces", "tray", "pulseaudio", "backlight", "bluetooth", "network", "power-profiles-daemon", "battery", "custom/Wlogout"],
     "width": 1366,
     "reload_style_on_change": true,
@@ -49,7 +49,7 @@
         "format": "{icon}",
         "tooltip": true,
         "tooltip-format": "{percent}% {icon}",
-        "format-icons": [" " , "󰖨 "]
+        "format-icons": ["" , "󰖨"]
     },
 
     "pulseaudio": {
@@ -84,7 +84,7 @@
     },
 
     "custom/Wlogout": {
-        "format": " ",
+        "format": "",
         "tooltip": false,
         "on-click": "wlogout"  
     },
@@ -113,7 +113,7 @@
     "clock": {
 	"interval": 1,
         "format": "{:%H:%M:%S}",
-        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+        "format-alt": "{:%A, %B %d, %Y (%R)} ",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "month",
@@ -137,10 +137,10 @@
     
     "network": {
         "format": "{ifname}",
-        "format-wifi": "({signalStrength}%)   ",
+        "format-wifi": "({signalStrength}%)  ",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-        "format-disconnected": "󱚵  ",
-        "format-disabled": "󰖪  ",
+        "format-disconnected": "󱚵 ",
+        "format-disabled": "󰖪 ",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
         "tooltip-format-ethernet": "{ifname} ",
@@ -154,16 +154,27 @@
     "wlr/taskbar": {
 	"format": "{icon}",
     	"icon-size": 22,
-    	"icon-theme": "adwaita",
-    	"tooltip-format": "{title}",
+    	"icon-theme": "Numix",
+    	"tooltip-format": "{app_id}",
     	"on-click": "activate",
     	"on-click-middle": "close"    
     },
 
     "custom/firefox": {
-	"format": " 󰈹 ",
+	"format": "󰈹 ",
 	"tooltip": false,
 	"on-click": "firefox"
+    },
+
+    "custom/files": {
+	"format": " ",
+    	"tooltip": false,
+	"on-click": "pcmanfm"
+    },
+
+    "custom/store": {
+	"format": "  ",
+	"tooltip": false,
+	"on-click": "gnome-software"
     }
-    
 }
