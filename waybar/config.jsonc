@@ -4,7 +4,7 @@
     "height": 34,
     "spacing": 4,
     "modules-left": ["clock"],
-    "modules-center": ["custom/firefox", "custom/files", "custom/store", "wlr/taskbar"],
+    "modules-center": ["custom/firefox", "custom/files", "wlr/taskbar"],
     "modules-right": ["sway/workspaces", "tray", "pulseaudio", "backlight", "bluetooth", "network", "power-profiles-daemon", "battery", "custom/Wlogout"],
     "width": 1366,
     "reload_style_on_change": true,
@@ -154,7 +154,7 @@
     "wlr/taskbar": {
 	"format": "{icon}",
     	"icon-size": 22,
-    	"icon-theme": "Numix",
+    	"icon-theme": "Paper",
     	"tooltip-format": "{app_id}",
     	"on-click": "activate",
     	"on-click-middle": "close"    
@@ -170,11 +170,5 @@
 	"format": " ",
     	"tooltip": false,
 	"on-click": "pcmanfm"
-    },
-
-    "custom/store": {
-	"format": "  ",
-	"tooltip": false,
-	"on-click": "gnome-software"
     }
 }
