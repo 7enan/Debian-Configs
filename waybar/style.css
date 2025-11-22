@@ -14,7 +14,7 @@
     font-size: 16px
 }
 
-#custom-firefox, #custom-files, #custom-store {
+#custom-firefox, #custom-files {
     font-size: 22px;
     color: @color2
 }
