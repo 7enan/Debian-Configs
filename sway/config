@@ -17,9 +17,12 @@ exec gnome-keyring-daemon
 # Polkit
 exec lxpolkit
 
-#Xdg Portal wlr
+# Xdg Portal wlr
 exec /usr/libexec/xdg-desktop-portal-wlr
 
+# Steam
+
+exec sleep 2 && steam -silent %U
 
 ###############
 ##-Variables-##
@@ -47,10 +50,11 @@ include /etc/sway/config-vars.d/*
 ########################
 
 exec swayidle -w \
-	  timeout 60 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-          timeout 180 'swaylock' \
-	  timeout 300 'systemctl suspend' \
-          before-sleep 'swaylock'
+    timeout 60 'if ~/.config/sway/check_media.sh; then swaymsg "output * dpms off"; fi' \
+    resume 'swaymsg "output * dpms on"' \
+    timeout 180 'if ~/.config/sway/check_media.sh; then swaylock -f; fi' \
+    timeout 300 'if ~/.config/sway/check_media.sh; then systemctl suspend; fi' \
+    before-sleep 'swaylock -f'
 
 #########################
 ##-Input configuration-##
@@ -69,9 +73,7 @@ exec swayidle -w \
        xkb_layout "br" 
    }
 
-###############
 ##-Shortcuts-##
-###############
 
 #-Basics-#
 
@@ -131,10 +133,10 @@ bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+1 exec 'swaymsg move container to workspace 1 && swaymsg workspace 1'
+bindsym $mod+Shift+2 exec 'swaymsg move container to workspace 2 && swaymsg workspace 2'
+bindsym $mod+Shift+3 exec 'swaymsg move container to workspace 3 && swaymsg workspace 3'
+bindsym $mod+Shift+4 exec 'swaymsg move container to workspace 4 && swaymsg workspace 4'
 
 #-Layout stuff-#
 

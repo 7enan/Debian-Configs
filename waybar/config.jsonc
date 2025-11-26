@@ -4,7 +4,7 @@
     "height": 34,
     "spacing": 4,
     "modules-left": ["clock"],
-    "modules-center": ["custom/firefox", "custom/files", "wlr/taskbar"],
+    "modules-center": ["custom/menu", "custom/firefox", "custom/files", "wlr/taskbar"],
     "modules-right": ["sway/workspaces", "tray", "pulseaudio", "backlight", "bluetooth", "network", "power-profiles-daemon", "battery", "custom/Wlogout"],
     "width": 1366,
     "reload_style_on_change": true,
@@ -15,7 +15,7 @@
 
     "tray": {
         "icon-size": 22,
-        "spacing": 5
+        "spacing": 7
     },
 
     "battery": {
@@ -170,5 +170,11 @@
 	"format": " ",
     	"tooltip": false,
 	"on-click": "pcmanfm"
+    },
+
+    "custom/menu": {
+	"format": " ",
+	"tooltip": false,
+	"on-click": "rofi -show drun"
     }
 }
